@@ -1,0 +1,24 @@
+// XS
+@include media('<=xs') {
+    // .products,
+    .home-trending {
+        .row > [class*="col-"] {
+            width: 100% !important;
+        }
+    }
+
+    .products.scroll {
+        overflow: auto;
+
+        > .row {
+            white-space: nowrap;
+
+            > [class*="col-"] {
+                float: none !important;
+                display: inline-block;
+
+                width: 85% !important;
+            }
+        }
+    }
+}

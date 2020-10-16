@@ -1,0 +1,50 @@
+// Main
+#wrapper {
+    background: #fff;
+}
+
+#main {
+    display: block;
+    margin-bottom: 50px;
+}
+
+#menu-panel {
+    color: #fff;
+    background: #333;
+}
+
+.products-slick {
+    @include media('<lg') {
+        .slick-prev,
+        .slick-next {
+            color: #fff;
+            background: rgba(0,0,0,.25);
+            height: 50px;
+            width: 25px;
+            margin-top: -100px;
+
+            &:before,
+            &:after {
+                color: #fff;
+            }
+        }
+        .slick-next {
+            right: 15px;
+        }
+        .slick-prev {
+            left: 15px;
+        }
+    }
+}
+.hidden-nav .owl-nav{
+    display: none;
+}
+.space-10{margin-bottom:10px;}
+.space-20{margin-bottom:20px;}
+.space-30{margin-bottom:30px;}
+.space-40{margin-bottom:40px;}
+.space-50{margin-bottom:50px;}
+.space-60{margin-bottom:60px;}
+.space-70{margin-bottom:70px;}
+.space-80{margin-bottom:80px;}
+.space-90{margin-bottom:90px;}

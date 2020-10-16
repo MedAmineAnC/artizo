@@ -1,0 +1,150 @@
+//==
+.awe-counting {
+    text-align: center;
+
+    &:before,
+    &:after {
+        content: " | ";
+    }
+
+    > h4 {
+        font-size: 20px;
+        text-transform: uppercase;
+        @include text-overflow;
+    }
+
+    > span {
+        font-family: $font-family-heading;
+        font-size: 50px;
+        font-weight: 700;
+        display: block;
+    }
+
+    @include media ("<=xs") {
+        > h4 {
+            font-size: 10px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        > span {
+            font-size: 25px;
+        }
+    }
+}
+
+#saleoff-countdown {
+    list-style: none;
+    position: absolute;
+    padding-left: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.awe-counting-2 {
+    padding-left: 0;
+    min-width: 60px;
+    list-style: none;
+    font-size: 10px;
+    color: #898989;
+    font-family: $font-family-heading;
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    &:last-child{
+        margin-bottom: 0;
+    }
+    > span {
+        font-size: 24px;
+        color: #333;
+        display: block;
+    }
+}
+@media screen and (max-width: 1199px) {
+    #saleoff-countdown {
+        padding-left: 50px;
+    }
+}
+@media screen and (max-width: 991px) {
+    #saleoff-countdown {
+        position: relative;
+        top: 0;
+        transform: translateY(0);
+        padding-left: 0;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .awe-counting-2 {
+        display: inline-block;
+        margin: 0 10px 15px;
+    }
+}
+
+// Saleoff Sportwear
+.saleoff-sportwear {
+    position: relative;
+    @include clearfix;
+    .saleoff-image {
+        float: left;
+        width: 600px;
+        margin-right: 70px;
+    }
+    .saleoff-detail {
+        position: relative;
+        float: right;
+        width: calc(100% - 670px);
+
+        #saleoff-countdown {
+            padding-left: 0;
+            z-index: 22;
+            padding: 10px;
+            background-color: #fff;
+            transform: translate(-50%, -50%);
+            .awe-counting-2 {
+                background-color: #f7f7f7;
+            }
+        }
+
+        .saleoff-actions {
+            background-color: #f7f7f7;
+            padding: 70px 90px;
+            margin-top: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .saleoff-sportwear {
+        .saleoff-image {
+            width: 400px;
+        }
+
+        .saleoff-detail {
+            width: calc(100% - 470px);
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .saleoff-sportwear {
+        .saleoff-image,
+        .saleoff-detail {
+            width: 100%;
+            float: none;
+        }
+
+        .saleoff-image {
+            text-align: center;
+        }
+        .saleoff-detail {
+            #saleoff-countdown {
+                transform: translate(0, 0);
+                margin-bottom: 0;
+            }
+
+            .saleoff-actions {
+                padding: 30px;
+            }
+        }
+    }
+}

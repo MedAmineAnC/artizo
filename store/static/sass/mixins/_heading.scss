@@ -1,0 +1,14 @@
+//
+@mixin heading($margin-bottom: false, $font-size: false, $letter-spacing: 0) {
+    margin-top: 0;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing;
+
+    @if $margin-bottom != false {
+        font-size: $font-size;
+    }
+
+    @if $margin-bottom != false {
+        margin-bottom: $margin-bottom;
+    }
+}

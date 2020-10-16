@@ -1,0 +1,133 @@
+.product-name{
+	a{
+		img{
+			max-height: 160px;
+		}
+	}
+}
+.cart-form .table>tbody>tr>td{
+	vertical-align: middle;
+}
+.cart-form .quantity {
+    background: #212121;
+    height: 35px;
+    margin-bottom: 13px;
+    width: 100px;
+    line-height: 33px;
+    position: relative;
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.4);
+}
+.cart-form .quantity .qty{
+	    width: 100%;
+    border: medium none;
+    height: 33px;
+    padding: 0px;
+    text-align: center;
+    font-size: 14px;
+    -webkit-moz-appearance: none;
+    -moz-moz-appearance: none;
+    -ms-moz-appearance: none;
+    -o-moz-appearance: none;
+    moz-appearance: none;
+    -webkit-appearance: none;
+    background: #fff;
+    color: #bcbcbc;
+}
+.cart-form .quantity .minus{
+	position: absolute;
+    display: block;
+    height: 100%;
+    color: #bcbcbc;
+    width: 20px;
+    text-align: center;
+    top: 0px;
+    left: 5px;
+    cursor: pointer;
+}
+.cart-form .quantity .plus {
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 20px;
+    color: #bcbcbc;
+    text-align: center;
+    top: 0px;
+    right: 5px;
+    cursor: pointer;
+}
+.f-right {
+    float: right;
+}
+.cart-total, .cart_total {
+    margin: 50px 0;
+}
+.margin-bottom-30 {
+    margin-bottom: 30px !important;
+}
+.cart-form .cart-total .total .title {
+    min-width: 175px;
+    font-family: Montserrat, Arial, sans-serif;
+    color: #898989;
+    font-size: 24px;
+    font-weight: 400;
+}
+.cart-form .cart-total .total .price {
+    font-family: Montserrat, Arial, sans-serif;
+    color: #000;
+    font-size: 30px;
+    font-weight: 700;
+}
+.cart-table .product-name {
+    font-weight: 700;
+}
+.my_cart{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 40px;
+    text-transform: uppercase;
+    color: #333;
+    font-weight: 700;
+}
+.product-name a ~ a{
+	padding-left: 10px;
+}
+
+/******************************************************************/
+/** Responsive  Shopping Cart**/
+@media only screen and (max-width: 760px), (max-device-width: 1024px){
+	.table-responsive table, .table-responsive thead, .table-responsive tbody, .table-responsive th, .table-responsive td{
+    display: block;
+	}
+	.table-responsive tr {
+    display: block;
+	}
+}
+@media only screen and (max-width: 760px), (max-device-width: 1024px){
+	.table-responsive thead tr {
+	    position: absolute;
+	    top: -9999px;
+	    left: -9999px;
+	}
+}
+@media (max-width: 479px){
+	form.cart-form .table-responsive tr td.product-name a+a {
+    	display: block;
+	}
+	.product-name a ~ a{
+		padding-top: 10px;
+		padding-left: 0px;
+	}
+}
+@media (max-width: 767px){
+	.table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 2px solid #ddd;
+	}
+}
+
+
+

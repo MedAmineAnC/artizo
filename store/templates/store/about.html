@@ -1,0 +1,249 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %} O NAS | Artizo {% endblock %}
+
+{% block cart %}
+
+<ul class="navbar-icons"> 
+    <li class="menubar-cart">
+        <a class="awemenu-icon menu-shopping-cart" title="" href="{% url 'cart:cart_detail' %}">
+            <div class="icon icon-cart"></div>
+            <div class="text">
+                <p class="cart-number">{{cart.get_total_items}}</p>
+            </div>
+        </a>
+
+        <ul class="submenu megamenu">
+            <li>
+                <div class="container-fluid">
+
+                    <ul class="whishlist">
+
+                        {% for item in cart %}
+						{% with product=item.product %}
+                        <li>
+                            <div class="whishlist-item">
+                                <div class="product-image">
+                                    <a href="#" title="">
+                                        <img src="{{product.image.url}}" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="product-body">
+                                    <div class="whishlist-name">
+                                        <h3><a href="#" title="">{{product.name}}</a></h3>
+                                    </div>
+
+                                    <div class="whishlist-price">
+                                        <span>Cena:</span>
+                                        <strong>PLN {{product.price}}</strong>
+                                    </div>
+
+                                    <div class="whishlist-quantity">
+                                        <span>Ilość:</span>
+                                        <span>1</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="#" title="" class="remove">
+                                <i class="icon icon-remove"></i>
+                            </a>
+                        </li>
+                        {% endwith %}
+                        {% endfor %}
+                        
+
+                    
+                        
+                    </ul>
+
+                    <div class="menu-cart-total">
+                        <span>Total</span>
+                        <span class="price">PLN {{cart.get_total_price}}</span>
+                    </div>
+
+                    <div class="cart-action">
+                        <a href="{% url 'cart:cart_detail' %}" title="" class="btn btn-lg btn-dark btn-outline btn-block">Zobacz Koszyk</a>
+                        <a href="checkout.html" title="" class="btn btn-lg btn-primary btn-block">Przejdź do kasy</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+{% endblock %}
+
+{% block content %}
+<div id="main">
+
+    <section>
+
+
+
+
+
+        <div class="main-slider-wrapper">
+            <div class="main-slider owl-carousel owl-carousel-inset">
+
+                <div class="main-slider-item">
+                    <div class="main-slider-image">
+                        <img src="/static/img/samples/sliders/4.jpg" alt="">
+                    </div>
+
+                    <div class="main-slider-text">
+
+                        <div class="fp-table">
+                            <div class="fp-table-cell center">
+                                <div class="container">
+                                    <h3 class="small">O NAS</h3>
+                                    <h2 class="small">ARTIZO</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End mainslider items -->
+
+            </div>
+        </div>
+
+        <script>
+            $(function () { aweMainSlider(); });
+        </script>
+
+    </section><!-- /section -->
+
+    <div id="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="#">STRONA GŁOWNA</a></li>
+                <li class="active"><span>O NAS</span></li>
+            </ol>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+
+            <div class="padding-vertical-50 border-bottom">
+                <div class="row">
+                    <div class="col-md-9 col-md-offset-1">
+
+                        <div class="awe-box center">
+                            <div class="awe-box-media space-20">
+                                <div class="awe-box-image">
+                                    <img src="/static/img/logo.png" alt="">
+                                </div>
+                            </div><!-- /.awe-box-media -->
+
+                            <div class="awe-box-content">
+                                <p>Artizo Bizuterii to hurtownia biżuterii srebrnej wysokiej próby 925. Nasze produkty posiadaja oryginalne blaszki cechownicze z wybitą pobą 925. Sprzedaż prowadzimy stacjonarnie w Wólce Kosowskiej (CH European B15) oraz przez Internet.
+
+                                    Sklep internetowy dostępny jest tylko dla zalogowanych użytkowników. Prowadzimy sprzedaż hurtową dla przedsiębiorców. Współpracujemy z zaufanymi firmami Payu i Inpost by zagwarantować Państwu bezpieczną dostawę i płatność.
+                                    
+                                     
+                                    
+                                    Ponizej regulamin i zasady naszej firmy</p>
+                            </div><!-- /.awe-box-content -->
+                        </div><!-- /.awe-box -->
+
+                    </div>
+                </div>
+            </div><!-- /.padding-vertical-50 -->
+
+            <div class="padding-vertical-50 border-bottom">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4">
+
+                        <div class="awe-box center box-hover margin-bottom-25">
+                            <div class="awe-box-media">
+                                <div class="awe-box-icon icon-large">
+                                    <!-- <i class="icon icon-like"></i> -->
+                                    <img src="/static/img/icon-svg/like.png" alt="like" style="max-width: 100px;">
+                                </div>
+                            </div><!-- /.awe-box-media -->
+
+                            <div class="awe-box-content">
+                                <h3>Płatność i dostawa</h3>
+                                <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain</p>
+                            </div><!-- /.awe-box-content -->
+                        </div><!-- /.awe-box -->
+
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+
+                        <div class="awe-box center box-hover margin-bottom-25">
+                            <div class="awe-box-media">
+                                <div class="awe-box-icon icon-large">
+                                    <!-- <i class="icon icon-shirt"></i> -->
+                                    <img src="/static/img/icon-svg/good.png" alt="like" style="max-width: 100px;">
+                                </div>
+                            </div><!-- /.awe-box-media -->
+
+                            <div class="awe-box-content">
+                                <h3>Regulamin sklepu</h3>
+                                <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and of the great explorer of the truth, the master-builder of human happiness</p>
+                            </div><!-- /.awe-box-content -->
+                        </div><!-- /.awe-box -->
+
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+
+                        <div class="awe-box center box-hover margin-bottom-25">
+                            <div class="awe-box-media">
+                                <div class="awe-box-icon icon-large">
+                                    <!-- <i class="icon icon-help"></i> -->
+                                    <img src="/static/img/icon-svg/chat.png" alt="like" style="max-width: 100px;">
+                                </div>
+                            </div><!-- /.awe-box-media -->
+
+                            <div class="awe-box-content">
+                                <h3>Polityka prywatności</h3>
+                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt</p>
+                            </div><!-- /.awe-box-content -->
+                        </div><!-- /.awe-box -->
+
+                    </div>
+                </div><!-- /.row -->
+            </div><!-- /.padding-vertical-50 -->
+
+        
+
+        </div><!-- /.container -->
+    </section><!-- /section -->
+
+    <div>
+        <div class="container">        
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="awe-media margin-bottom-20">
+                        <div class="awe-media-image hover-images">
+                            <a href="#">
+                                <img alt="" src="/static/img/samples/banners/home/2.jpg">
+                            </a>
+                        </div>
+                    </div><!-- /.awe-media -->
+                </div>
+    
+                <div class="col-md-6 col-sm-6">
+                    <div class="awe-media margin-bottom-20">
+                        <div class="awe-media-image hover-images">
+                            <a href="#">
+                                <img alt="" src="/static/img/samples/banners/home/1.jpg">
+                            </a>
+                        </div><!-- /.awe-media -->
+                    </div>
+                </div>
+            </div><!-- /.row -->
+    
+        </div><!-- /.container -->
+    </div>
+
+</div>
+{% endblock %}

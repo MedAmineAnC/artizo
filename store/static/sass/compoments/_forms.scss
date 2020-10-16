@@ -1,0 +1,110 @@
+//==
+$awe-form-control-border:             #333;
+$awe-form-control-focus:              lighten($awe-form-control-border, 35%);
+
+.form-control {
+    &.dark {
+        border-color: $awe-form-control-border;
+    }
+
+    &:focus {
+        border-color: $awe-form-control-focus;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+}
+
+.form-control {
+    // height: 37px;
+    // padding-top: 7px;
+    box-shadow: none;
+
+    &.form-small {
+        height: 30px;
+    }
+
+    &-search {
+        border-color: $border-color;
+        border-radius: 35px;
+        padding-left: 35px;
+    }
+}
+
+.form-search {
+    position: relative;
+
+    &-icon {
+        color: #999;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -8px;
+        margin-left: 15px;
+    }
+}
+
+.woocommerce .form-control {
+    border-color: #eee !important;
+}
+
+.hide-show-password-wrapper {
+    position: relative;
+    width: 100% !important;
+
+    .hide-show-password-toggle {
+        color: #999;
+        position: absolute;
+        border: none;
+        background: transparent;
+        right: 8px !important;
+        top: 5px !important;
+        margin-top: 0 !important;
+
+        &:hover,
+        &:focus {
+            background: #f3f3f3;
+        }
+    }
+}
+
+.label-select {
+    margin-bottom: 0;
+    font-weight: normal;
+    position: relative;
+    display: block;
+    transition: 'all 0.3s ease';
+    width: 100%;
+    display: block;
+    font-weight: 400;
+
+    border: solid 1px #eee;
+
+    &:before {
+        content: '';
+        position: absolute;
+        pointer-events: none;
+        background-color: #fff;
+        font-family: 'FontAwesome';
+        content:'\f107';
+        top: 0; bottom: 0;
+        width: 30px;
+        line-height: 30px;
+        right: 0;
+        z-index: 1;
+        text-align: center;
+    }
+
+    &:hover {
+        border-color: #333;
+    }
+
+    select {
+        border: none;
+        outline: none;
+
+        &:-moz-focusring {
+            color: transparent;
+            text-shadow: 0 0 0 #333;
+            box-shadow: none;
+        }
+    }
+}

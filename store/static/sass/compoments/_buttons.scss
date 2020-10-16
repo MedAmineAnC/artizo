@@ -1,0 +1,149 @@
+//==
+$awe-button-color:                     #fff;
+
+$awe-button-default-color:             #333;
+$awe-button-default-background:        #fff;
+$awe-button-default-boder:             #ddd;
+
+$awe-button-primary-color:             $awe-button-color;
+$awe-button-primary-background:        $awe-primary-color;
+$awe-button-primary-boder:             $awe-button-primary-background;
+
+$awe-button-info-color:                $awe-button-color;
+$awe-button-info-background:           $awe-info-color;
+$awe-button-info-boder:                $awe-button-info-background;
+
+$awe-button-success-color:             $awe-button-color;
+$awe-button-success-background:        $awe-success-color;
+$awe-button-success-boder:             $awe-button-success-background;
+
+$awe-button-danger-color:              $awe-button-color;
+$awe-button-danger-background:         $awe-danger-color;
+$awe-button-danger-boder:              $awe-button-danger-background;
+
+$awe-button-warning-color:             $awe-button-color;
+$awe-button-warning-background:        $awe-warning-color;
+$awe-button-warning-boder:             $awe-button-warning-background;
+
+$awe-button-dark-color:                $awe-button-color;
+$awe-button-dark-background:           $awe-dark-color;
+$awe-button-dark-boder:                $awe-button-dark-background;
+
+$awe-button-white-color:               $awe-dark-color;
+$awe-button-white-background:          $awe-white-color;
+$awe-button-white-boder:               $awe-button-white-background;
+
+.btn {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    border-radius: 0;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    border: solid 1px rgba(0,0,0,0);
+
+    &:focus {
+        outline: none;
+    }
+
+    &.btn-xs {
+        font-size: 10px;
+        padding: 3px 7px;
+    }
+
+    &.btn-sm {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    &.btn-lg {
+        font-size: 12px;
+        padding: 12px 25px;
+        letter-spacing: 1px;
+    }
+
+    &.btn-arrow {
+        padding: 7px 8px;
+
+        &.btn-sm {
+            padding: 7px 9px;
+        }
+
+        &.slick-disabled {
+            opacity: 0.5;
+        }
+    }
+}
+
+.btn-default {
+    @include button-variant(
+        $awe-button-default-color,
+        $awe-button-default-background,
+        $awe-button-default-boder
+    );
+
+    &:hover,
+    &:focus {
+        border-color: $awe-button-default-boder;
+    }
+
+    &.btn-outline {
+        color: #333;
+    }
+}
+
+.btn-primary {
+    @include button-variant(
+        $awe-button-primary-color,
+        $awe-button-primary-background,
+        $awe-button-primary-boder
+    );
+}
+
+.btn-info {
+    @include button-variant(
+        $awe-button-info-color,
+        $awe-button-info-background,
+        $awe-button-info-boder
+    );
+}
+
+.btn-success {
+    @include button-variant(
+        $awe-button-success-color,
+        $awe-button-success-background,
+        $awe-button-success-boder
+    );
+}
+
+.btn-danger {
+    @include button-variant(
+        $awe-button-danger-color,
+        $awe-button-danger-background,
+        $awe-button-danger-boder
+    );
+}
+
+.btn-warning {
+    @include button-variant(
+        $awe-button-warning-color,
+        $awe-button-warning-background,
+        $awe-button-warning-boder
+    );
+}
+
+.btn-dark {
+    @include button-variant(
+        $awe-button-dark-color,
+        $awe-button-dark-background,
+        $awe-button-dark-boder
+    );
+}
+
+.btn-white {
+    @include button-variant(
+        $awe-button-white-color,
+        $awe-button-white-background,
+        $awe-button-white-boder
+    );
+}

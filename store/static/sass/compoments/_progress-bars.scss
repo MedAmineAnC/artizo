@@ -1,0 +1,74 @@
+//
+// Progress bars
+// --------------------------------------------------
+
+// ...
+$awe-progress-primary-background:        $awe-primary-color !default;
+$awe-progress-info-background:           $awe-info-color !default;
+$awe-progress-success-background:        $awe-success-color !default;
+$awe-progress-danger-background:         $awe-danger-color !default;
+$awe-progress-warning-background:        $awe-warning-color !default;
+$awe-progress-dark-background:           $awe-dark-color !default;
+
+// ...
+.progress {
+    height: 15px;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+    margin-top: 10px;
+    margin-bottom: 50px;
+
+    &.progress-small {
+        height: 3px;
+    }
+}
+
+.progress-bar {
+    color: $awe-white-color;
+    line-height: 18px;
+    box-shadow: none;
+    position: relative;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    padding-left: 5px;
+
+    .percent {
+        position: absolute;
+        right: 0;
+    }
+
+    .progress-small & {
+        color: $awe-dark-color;
+        line-height: 30px;
+        padding-left: 0;
+
+        .percent {
+            color: lighten($awe-dark-color, 25%);
+            right: -10px;
+            bottom: 100%;
+        }
+    }
+}
+
+.progress-bar-success {
+    background-color: $awe-progress-success-background;
+}
+
+.progress-bar-info {
+    background-color: $awe-progress-info-background;
+}
+
+.progress-bar-warning {
+    background-color: $awe-progress-warning-background;
+}
+
+.progress-bar-danger {
+    background-color: $awe-progress-danger-background;
+}
+
+.progress-bar-dark {
+    background-color: $awe-progress-dark-background;
+}

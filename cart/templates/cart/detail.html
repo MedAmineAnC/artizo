@@ -1,0 +1,242 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %} KOSZYK | Artizo {% endblock %}
+
+{% block cart %}
+
+<ul class="navbar-icons"> 
+    <li class="menubar-cart">
+        <a class="awemenu-icon menu-shopping-cart" title="" href="{% url 'cart:cart_detail' %}">
+            <div class="icon icon-cart"></div>
+            <div class="text">
+                <p class="cart-number">{{cart.get_total_items}}</p>
+            </div>
+        </a>
+
+        <ul class="submenu megamenu">
+            <li>
+                <div class="container-fluid">
+
+                    <ul class="whishlist">
+
+                        {% for item in cart %}
+						{% with product=item.product %}
+                        <li>
+                            <div class="whishlist-item">
+                                <div class="product-image">
+                                    <a href="#" title="">
+                                        <img src="{{product.image.url}}" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="product-body">
+                                    <div class="whishlist-name">
+                                        <h3><a href="#" title="">{{product.name}}</a></h3>
+                                    </div>
+
+                                    <div class="whishlist-price">
+                                        <span>Cena:</span>
+                                        <strong>PLN {{product.price}}</strong>
+                                    </div>
+
+                                    <div class="whishlist-quantity">
+                                        <span>Ilość:</span>
+                                        <span>1</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="#" title="" class="remove">
+                                <i class="icon icon-remove"></i>
+                            </a>
+                        </li>
+                        {% endwith %}
+                        {% endfor %}
+                        
+
+                    
+                        
+                    </ul>
+
+                    <div class="menu-cart-total">
+                        <span>Total</span>
+                        <span class="price">PLN {{cart.get_total_price}}</span>
+                    </div>
+
+                    <div class="cart-action">
+                        <a href="{% url 'cart:cart_detail' %}" title="" class="btn btn-lg btn-dark btn-outline btn-block">Zobacz Koszyk</a>
+                        <a href="checkout.html" title="" class="btn btn-lg btn-primary btn-block">Przejdź do kasy</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+{% endblock %}
+
+{% block content %}
+<div id="main">
+	<section>	
+    <div class="main-slider-wrapper">
+        <div class="main-slider owl-carousel owl-carousel-inset">
+
+            <div class="main-slider-item">
+                <div class="main-slider-image">
+                    <img src="/static/img/samples/sliders/4.jpg" alt="">
+                </div>
+
+                <div class="main-slider-text">
+
+                    <div class="fp-table">
+                        <div class="fp-table-cell center">
+                            <div class="container">
+                                <h3 class="small">Artizo</h3>
+                                <h2 class="small">Twój Koszyk</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- End mainslider items -->
+
+        </div>
+    </div>
+
+    <script>
+        $(function() {  aweMainSlider(); });
+        </script>
+
+    </section><!-- /section -->
+    <div id="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="#">STRONA GŁOWNA</a></li>
+                <li class="active"><span>Koszyk</span></li>
+            </ol>
+
+        </div>
+    </div><!-- breadcrumb -->
+
+    <section id="cart">
+
+        <div class="container">
+
+            <p class="my_cart">Koszyk</p>
+
+            <form class="cart-form" action="/cart" method="post" novalidate="">
+
+                <div class="table-responsive">
+
+                    <table class="table cart-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th></th>
+
+                                <th class="product-name">Produkt</th>
+
+                                <th>Cena</th>
+
+                                <th>Ilość</th>
+
+                                <th>Total</th>
+
+                            </tr>
+
+                        </thead>
+                        <tbody>
+
+                            {% for item in cart %}
+                            {% with product=item.product %}
+                            <tr>
+
+                                <td class="product-remove">
+
+                                    <a class="remove" href="#"><i class="fa fa-times-circle"></i></a>
+
+                                </td>
+
+                                <td class="product-name">
+
+                                    <a href="{{product.get_absolute_url}}">
+
+                                      <img src="{{product.image.url}}">
+
+                                    </a>
+
+                                    <a href="{{product.get_absolute_url}}">{{product.name}}</a>
+
+                                </td>
+
+                                <td class="product-price">
+
+                                    <p class="price"> <span class="money">PLN {{product.price}}</span></p>
+
+                                </td>
+
+                                <td>
+
+                                <div class="quantity"><span class="minus"><i class="fa fa-minus-square-o"></i></span>
+
+                                  <input type="text" value="1" title="Qty" class="qty" size="4">
+
+                                  <span class="plus"><i class="fa fa-plus-square-o"></i></span></div>
+
+                                </td>
+
+                                <td class="product-subtotal product-price">
+
+                                    <span class="price">
+
+                                      <span class="money" data-currency-usd="PLN {{item.total_price}}">PLN {{item.total_price}}</span>
+                                    </span>
+
+                                </td>
+
+                            </tr>
+                            {% endwith %}
+                            {% endfor %}
+
+
+                    </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="col-sm-6 f-right">
+                    <!--START TOTAL-->
+                    <div class="cart-total right">
+                        <div class="margin-bottom-30"><a href="/collections/all">« Kontynuować zakupy</a></div>
+                        <div class="cart__row">
+                            <div class="grid">
+
+                                <div class="grid__item text-right">
+                                    <p class="total margin-bottom-30">
+                                      <span class="title">Total </span>
+                                      <span class="price">PLN {{cart.get_total_price}}</span></span>
+                                    </p>
+
+
+                                <input type="submit" name="checkout" class="btn btn-lg btn-primary" value="Przejdź do kasy">
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!--END TOTAL-->
+                </div>
+
+            </form>
+        </div>
+    </section>
+</div>
+{% endblock %}

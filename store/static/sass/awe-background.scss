@@ -1,0 +1,13 @@
+//
+
+$pages: "main-404", "main-comming-soon",
+        "heading-blog", "heading-about-us", "heading-contact",
+        "heading-customers-say", "heading-checkout", "heading-products",
+        "heading-product", "heading-portfolios",
+        "section-counting", "section-customers-say", "section-farmer";
+
+@each $page in $pages {
+    .background-image-#{$page} {
+        background-image: url('../img/backgrounds/#{$page}.jpg');
+    }
+}

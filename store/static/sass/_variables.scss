@@ -1,0 +1,35 @@
+//------------------------------------------------------
+// Bootstrap Variables
+//------------------------------------------------------
+@import "vendor/bootstrap-sass/bootstrap/variables";
+
+//------------------------------------------------------
+// Variables
+//------------------------------------------------------
+$main-color:              #333;
+$gray-color:              #898989;
+$hover-color:             #c8a165;
+$border-color:            #e1e1e1;
+$color-home:			#c8a165;
+
+$awe-primary-color:       #c8a165;
+$awe-info-color:          #3CBC8D;
+$awe-success-color:       #59b408;
+$awe-danger-color:        #fd6a4d;
+$awe-warning-color:       #FCA13F;
+$awe-dark-color:          #333;
+$awe-white-color:         #fff;
+
+$font-family-base:        Roboto, Arial, sans-serif;
+$font-family-heading:     Montserrat, Arial, sans-serif;
+$font-family-luxury:	  GreatVibes, Arial, sans-serif;
+
+$image-path:              '../img';
+
+$blog-border-color:       $border-color;
+$footer-default-color:    #acacac;
+
+$header-height:           80px;
+$header-border-color:     #e9e8e8;
+
+$breakpoints: (tiny: 320px, xs: 480px, sm: 768px, md: 992px, lg: 1200px);

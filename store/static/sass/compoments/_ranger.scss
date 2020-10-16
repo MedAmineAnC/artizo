@@ -1,0 +1,45 @@
+// Variable
+$awe-price-slider-size: 15px;
+
+.ranger-wrapper {
+    margin-bottom: 25px;
+}
+
+.price_slider.ui-slider,
+.ranger.ui-slider {
+    height: 3px;
+    background: #e1e1e1;
+    position: relative;
+    border: none;
+
+    .ui-slider-range {
+        background: #ffa200 none repeat scroll 0 0;
+        border: medium none;
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+    }
+
+    .ui-slider-handle {
+        background: url('../img/ranger-bar.png') no-repeat center center #b9b9b9;
+        cursor: pointer;
+        height: $awe-price-slider-size;
+        width: $awe-price-slider-size;
+        position: absolute;
+        z-index: 2;
+
+        margin-left: 0;
+        top: -($awe-price-slider-size/2)+1;
+
+        border-radius: 0;
+        border: none;
+        transition: left 0.15s ease;
+
+        &:focus,
+        &:active {
+            outline: none;
+        }
+    }
+}

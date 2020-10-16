@@ -1,0 +1,298 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %} STRONA GŁOWNA | Artizo {% endblock %}
+
+{% block cart %}
+
+<ul class="navbar-icons"> 
+    <li class="menubar-cart">
+        <a class="awemenu-icon menu-shopping-cart" title="" href="{% url 'cart:cart_detail' %}">
+            <div class="icon icon-cart"></div>
+            <div class="text">
+                <p class="cart-number">{{cart.get_total_items}}</p>
+            </div>
+        </a>
+
+        <ul class="submenu megamenu">
+            <li>
+                <div class="container-fluid">
+
+                    <ul class="whishlist">
+
+                        {% for item in cart %}
+						{% with product=item.product %}
+                        <li>
+                            <div class="whishlist-item">
+                                <div class="product-image">
+                                    <a href="#" title="">
+                                        <img src="{{product.image.url}}" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="product-body">
+                                    <div class="whishlist-name">
+                                        <h3><a href="#" title="">{{product.name}}</a></h3>
+                                    </div>
+
+                                    <div class="whishlist-price">
+                                        <span>Cena:</span>
+                                        <strong>PLN {{product.price}}</strong>
+                                    </div>
+
+                                    <div class="whishlist-quantity">
+                                        <span>Ilość:</span>
+                                        <span>1</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="#" title="" class="remove">
+                                <i class="icon icon-remove"></i>
+                            </a>
+                        </li>
+                        {% endwith %}
+                        {% endfor %}
+                        
+
+                    
+                        
+                    </ul>
+
+                    <div class="menu-cart-total">
+                        <span>Total</span>
+                        <span class="price">PLN {{cart.get_total_price}}</span>
+                    </div>
+
+                    <div class="cart-action">
+                        <a href="{% url 'cart:cart_detail' %}" title="" class="btn btn-lg btn-dark btn-outline btn-block">Zobacz Koszyk</a>
+                        <a href="checkout.html" title="" class="btn btn-lg btn-primary btn-block">Przejdź do kasy</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+{% endblock %}
+
+{% block content %}
+
+<div id="main">
+    <section>
+        <div class="main-slider-wrapper">
+            <div class="main-slider owl-carousel owl-carousel-inset">
+
+                <div class="main-slider-item">
+                    <div class="main-slider-image">
+                        <img src="./static/img/samples/sliders/6.jpg" alt="">
+                    </div>
+
+                    <div class="main-slider-text">
+                        <div class="fp-table height-70">
+                            <div class="fp-table-cell center">
+                                <div class="container">
+                                    <h2 class="color-home margin-bottom-10 size-55">zdobądź najnowszy trend</h2>
+                                    <h5 class="color-black">Największa Hurtownia Biżuterii W Polsce</h5>
+
+                                    <div class="button">
+                                        <a href="#" class="btn btn-lg btn-black btn-outline">Wyświetl Kolekcję</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End slider item -->
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+    $(function() {  aweMainSlider(); });
+    </script>
+
+    <!-- Catalog Start -->
+    <br/><br/><br/>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-sm-12 col-md-offset-1">
+
+                <div class="lookbooks">
+                    <div class="lookbook">
+                        <h2>Naszyjniki</h2>
+
+                        <div class="heading">
+                            <div class="image">
+                                <img src="static/img/samples/lookbook/large/lookbook-large-1.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <div class="small-image">
+                                <img src="static/img/samples/lookbook/small/lookbook-small-1.jpg" alt="">
+                            </div>
+
+                            <div class="content-body">
+                                <h3>
+                                    <a href="{% url 'store:catalog_by_category' 'necklaces' %}">Włoski Luksus</a>
+                                </h3>
+
+                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+
+                                <div class="">
+                                    <a href="{% url 'store:catalog_by_category' 'necklaces' %}" class="btn btn-lg btn-dark">
+                                        <span>Sprawdź Katalog</span>
+                                        <i class="fa fa-chevron-right margin-left-5"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <span class="line"></span>
+                        </div>
+                    </div><!-- /.lookbook -->
+
+                    <div class="lookbook">
+                        <h2>Bransoletki</h2>
+
+                        <div class="heading">
+                            <div class="image">
+                                <img src="static/img/samples/lookbook/large/lookbook-large-2.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <div class="small-image">
+                                <img src="static/img/samples/lookbook/small/lookbook-small-2.jpg" alt="">
+                            </div>
+
+                            <div class="content-body">
+                                <h3>
+                                    <a href="{% url 'store:catalog_by_category' 'bracelets' %}">Kolorowy Bransoletki</a>
+                                </h3>
+
+                                <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness</p>
+
+                                <div class="">
+                                    <a href="{% url 'store:catalog_by_category' 'bracelets' %}" class="btn btn-lg btn-dark">
+                                        <span>Sprawdź Katalog</span>
+                                        <i class="fa fa-chevron-right margin-left-5"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <span class="line"></span>
+                        </div>
+                    </div><!-- /.lookbook -->
+
+                    <div class="lookbook">
+                        <h2>KOLCZYKI</h2>
+
+                        <div class="heading">
+                            <div class="image">
+                                <img src="static/img/samples/lookbook/large/lookbook-large-3.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <div class="small-image">
+                                <img src="static/img/samples/lookbook/small/lookbook-small-3.jpg" alt="">
+                            </div>
+
+                            <div class="content-body">
+                                <h3>
+                                    <a href="{% url 'store:catalog_by_category' 'earrings' %}">Kolorowy Kolczyki</a>
+                                </h3>
+
+                                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus</p>
+
+                                <div class="">
+                                    <a href="{% url 'store:catalog_by_category' 'earrings' %}" class="btn btn-sm btn-lg btn-dark">
+                                        <span>Sprawdź Katalog</span>
+                                        <i class="fa fa-chevron-right margin-left-5"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <span class="line"></span>
+                        </div>
+                    </div><!-- /.lookbook -->
+
+                    <div class="lookbook">
+                        <h2>Pierścionek</h2>
+
+                        <div class="heading">
+                            <div class="image">
+                                <img src="static/img/samples/lookbook/large/lookbook-large-4.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <div class="small-image">
+                                <img src="static/img/samples/lookbook/small/lookbook-small-4.jpg" alt="">
+                            </div>
+
+                            <div class="content-body">
+                                <h3>
+                                    <a href="{% url 'store:catalog_by_category' 'bracelets' %}">Pierścionek</a>
+                                </h3>
+
+                                <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness</p>
+
+                                <div class="">
+                                    <a href="{% url 'store:catalog_by_category' 'rings' %}" class="btn btn-lg btn-dark">
+                                        <span>Sprawdź Katalog</span>
+                                        <i class="fa fa-chevron-right margin-left-5"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <span class="line"></span>
+                        </div>
+                    </div><!-- /.lookbook -->
+
+                    <div class="lookbook">
+                        <h2>Zestawy</h2>
+
+                        <div class="heading">
+                            <div class="image">
+                                <img src="static/img/samples/lookbook/large/lookbook-large-5.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <div class="small-image">
+                                <img src="static/img/samples/lookbook/small/lookbook-small-5.jpg" alt="">
+                            </div>
+
+                            <div class="content-body">
+                                <h3>
+                                    <a href="{% url 'store:catalog_by_category' 'earrings' %}">Kolorowy Zestawy</a>
+                                </h3>
+
+                                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus</p>
+
+                                <div class="">
+                                    <a href="{% url 'store:catalog_by_category' 'sets' %}" class="btn btn-sm btn-lg btn-dark">
+                                        <span>Sprawdź Katalog</span>
+                                        <i class="fa fa-chevron-right margin-left-5"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <span class="line"></span>
+                        </div>
+                    </div><!-- /.lookbook -->
+                </div><!-- /.lookbooks -->
+
+                <div class="center">
+                    <a href="{% url 'store:catalog' %}" title="" class="btn btn-lg btn-dark btn-outline">Sprawdź wszystko</a>
+                </div><!-- /.center -->
+
+            </div>
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+    <!-- Catalog End -->
+</div>
+{% endblock %}

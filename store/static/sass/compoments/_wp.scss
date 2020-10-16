@@ -1,0 +1,207 @@
+// Subscribe form
+$awe-subscible-response-color:       #333;
+$awe-subscible-response-background:  #fff;
+$awe-subscible-response-border:      solid 1px #333;
+
+$awe-subscible-response-arrow-size:  8px;
+$awe-subscible-response-arrow-color: $awe-subscible-response-color;
+
+$awe-subscible-invalid-color:        #fff;
+$awe-subscible-invalid-background:   #F93434;
+
+$awe-subscible-success-color:        #fff;
+$awe-subscible-success-background:   #59b408;
+
+// Subscible
+.subscible-wrapper {
+    .screen-reader-response {
+        display: none !important;
+    }
+
+    .wpcf7-form {
+        position: relative;
+    }
+
+    .wpcf7-not-valid-tip {
+        font-size: 13px;
+        display: block;
+        background: $awe-subscible-invalid-background;
+        color: $awe-subscible-invalid-color;
+        padding: 2px 10px;
+    }
+
+    .wpcf7-response-output {
+        position: absolute;
+        top: -10px;
+        transform: translateY(-100%);
+
+        background: $awe-subscible-response-background;
+        color: $awe-subscible-response-color;
+        border: $awe-subscible-response-border;
+        padding: 5px 10px;
+        margin: 0;
+    }
+
+    .wpcf7-response-output:after {
+        content: "";
+        width: 0;
+        height: 0;
+
+        border-left: $awe-subscible-response-arrow-size solid transparent;
+        border-right: $awe-subscible-response-arrow-size solid transparent;
+        border-top: $awe-subscible-response-arrow-size solid $awe-subscible-response-arrow-color;
+
+        position: absolute;
+        bottom: -($awe-subscible-response-arrow-size - 1);
+        left: ($awe-subscible-response-arrow-size / 2) + 1;
+    }
+
+    .wpcf7-mail-sent-ok.wpcf7-response-output {
+        color: $awe-subscible-success-color;
+        background: $awe-subscible-success-background;
+        border: none;
+
+        &:after {
+            border-top-color: $awe-subscible-success-background;
+        }
+    }
+
+    .wpcf7-validation-errors.wpcf7-response-output {
+        color: $awe-subscible-invalid-color;
+        background: $awe-subscible-invalid-background;
+        border: none;
+
+        &:after {
+            border-top-color: $awe-subscible-invalid-background;
+        }
+    }
+
+    .form-submit {
+        position: relative;
+
+        .ajax-loader {
+            background-color: #fff;
+            border-radius: 50%;
+
+            padding: 1px;
+            margin-left: 5px !important;
+            margin-top: -9px;
+
+            position: absolute;
+            left: 0;
+            top: 50%;
+        }
+    }
+
+    &.subscible-block {
+        .wpcf7-response-output {
+            top: 0 !important;
+        }
+    }
+}
+
+.uheading {
+  font-size: 16px;
+  margin-bottom: 25px;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.table-cart {
+  margin-bottom: 50px;
+
+  tr > td,
+  tr > th {
+    border-color: #e2e1e1 !important;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  thead > tr > th,
+  thead > tr > td, {
+    background-color: #e2e1e1;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  tfoot > tr > td,
+  tbody > tr > th,
+  tbody > tr > td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 20px 25px;
+  }
+
+  tfoot .pull-right .btn {
+    margin-left: 15px;
+  }
+
+  .cart-product {
+    position: relative;
+    text-align: left;
+
+    .remove {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: $gray-color;
+
+      &:hover,
+      &:focus {
+        color: $awe-primary-color;
+      }
+    }
+  }
+
+  .product-cart img {
+    border: solid 1px #e2e1e1;
+  }
+
+  .product-title {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 16px;
+
+    &:hover,
+    &:focus {
+      color: $awe-primary-color;
+    }
+  }
+
+  .amount {
+    color: $awe-primary-color;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .qty {
+    @include size(38px, 38px);
+    display: inline-block;
+    padding: 0;
+    text-align: center;
+  }
+}
+
+.table-summary-cart {
+  width: 100%;
+  text-transform: uppercase;
+
+  th, td {
+    font-weight: 400;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  td {
+    text-align: right;
+  }
+
+  .order-total {
+    font-size: 18px;
+
+    .amount {
+      color: $awe-primary-color;
+    }
+  }
+}

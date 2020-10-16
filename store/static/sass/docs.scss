@@ -1,0 +1,110 @@
+//
+@import "variables";
+@import "mixins";
+
+// Docs
+.elements-section {
+    padding: 120px 0;
+    overflow: hidden;
+}
+
+// Doc icon list
+.doc-icons-list {
+    padding-left: 0;
+    list-style: none;
+    overflow: hidden;
+
+    li {
+        background-color: #f9f9f9;
+        border: 1px solid #fff;
+        float: left;
+        font-size: 12px;
+        height: 125px;
+        line-height: 1.4;
+        padding: 10px;
+        text-align: center;
+        transition: all 0.25s ease;
+        width: 50%;
+
+        &:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        @include media('>=lg') {
+            width: 12.5%;
+        }
+
+        @include media('>=md', '<lg') {
+            width: 20%;
+        }
+
+        @include media('>=sm', '<md') {
+            width: 25%;
+        }
+    }
+
+    .doc-list-class {
+        display: block;
+        text-align: center;
+        word-wrap: break-word;
+    }
+
+    .doc-list-icon {
+        font-size: 32px;
+        margin-bottom: 5px;
+        margin-top: 10px;
+        display: inline-block;
+    }
+}
+
+// ...
+.fix-footer {
+    margin-bottom: -50px;
+}
+
+//
+.doc-background {
+    height: 750px;
+}
+
+//
+.heading-large {
+    font-size: 52px;
+
+    @include media('<sm') {
+        font-size: 32px;
+    }
+
+    @include media('<sm') {
+        font-size: 18px;
+    }
+}
+
+// ...
+.box-row {
+    color: #fff;
+    background: #333;
+    margin-bottom: 15px;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    transition: all 0.25s ease;
+
+    &:hover {
+        background: #666;
+    }
+}
+
+//
+.docs-map-1 {
+    height: 500px;
+}
+
+.docs-carousel-3 {
+    .owl-dots {
+        margin-top: 50px;
+    }
+}

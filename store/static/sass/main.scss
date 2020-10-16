@@ -1,0 +1,32 @@
+@import "variables";
+@import "mixins";
+
+/*=============================================
+=            TABLE OF CONTENT                 =
+=============================================*/
+
+/* -------------------------------------------------------------------------------
+  A. Common CSS
+  B. Compoments
+
+  1. Base compoments
+  2. Awe compoments
+  3. Awe compoments
+  4. Plugins compoments
+  5. Widgets compoments
+  6. Sections compoments
+  7. Layouts compoments
+  8. Wordpress fixed
+-------------------------------------------------------------------------------*/
+
+/* -------------------------------------------------------------------------------
+    A. Common CSS
+--------------------------------------------------------------------------------*/
+@import "common";
+@import url('../fonts/font-awesome/font-awesome.min.css');
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+/* -------------------------------------------------------------------------------
+    B. Compoments
+--------------------------------------------------------------------------------*/
+@import "compoments";

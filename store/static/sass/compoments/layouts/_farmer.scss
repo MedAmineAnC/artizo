@@ -1,0 +1,18 @@
+.farmer-box {
+	position: relative;
+	margin-bottom: 30px;
+	.farmer-box-detail {
+		position: relative;
+		padding: 15px 20px;
+		background-color: #69916a;
+		margin-bottom: 30px;
+	}
+	@media screen and (max-width: 767px) {
+		text-align: center;
+		.farmer-box-detail {
+			max-width: 370px;
+			width: 100%;
+			margin: 0 auto;
+		}
+	}
+}

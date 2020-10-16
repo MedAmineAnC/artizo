@@ -1,0 +1,283 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %} KATALOG | Artizo {% endblock %}
+
+{% block cart %}
+
+<ul class="navbar-icons"> 
+    <li class="menubar-cart">
+        <a class="awemenu-icon menu-shopping-cart" title="" href="{% url 'cart:cart_detail' %}">
+            <div class="icon icon-cart"></div>
+            <div class="text">
+                <p class="cart-number">{{cart.get_total_items}}</p>
+            </div>
+        </a>
+
+        <ul class="submenu megamenu">
+            <li>
+                <div class="container-fluid">
+
+                    <ul class="whishlist">
+
+                        {% for item in cart %}
+						{% with product=item.product %}
+                        <li>
+                            <div class="whishlist-item">
+                                <div class="product-image">
+                                    <a href="#" title="">
+                                        <img src="{{product.image.url}}" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="product-body">
+                                    <div class="whishlist-name">
+                                        <h3><a href="#" title="">{{product.name}}</a></h3>
+                                    </div>
+
+                                    <div class="whishlist-price">
+                                        <span>Cena:</span>
+                                        <strong>PLN {{product.price}}</strong>
+                                    </div>
+
+                                    <div class="whishlist-quantity">
+                                        <span>Ilość:</span>
+                                        <span>1</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="#" title="" class="remove">
+                                <i class="icon icon-remove"></i>
+                            </a>
+                        </li>
+                        {% endwith %}
+                        {% endfor %}
+                        
+
+                    
+                        
+                    </ul>
+
+                    <div class="menu-cart-total">
+                        <span>Total</span>
+                        <span class="price">PLN {{cart.get_total_price}}</span>
+                    </div>
+
+                    <div class="cart-action">
+                        <a href="{% url 'cart:cart_detail' %}" title="" class="btn btn-lg btn-dark btn-outline btn-block">Zobacz Koszyk</a>
+                        <a href="checkout.html" title="" class="btn btn-lg btn-primary btn-block">Przejdź do kasy</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+{% endblock %}
+
+{% block content %}
+
+<div id="main">
+    <section>
+        
+        
+        
+        
+
+        <div class="main-slider-wrapper">
+            <div class="main-slider owl-carousel owl-carousel-inset">
+
+                <div class="main-slider-item">
+                    <div class="main-slider-image">
+                        <img src="/static/img/samples/sliders/4.jpg" alt="">
+                    </div>
+
+                    <div class="main-slider-text">
+
+                        <div class="fp-table">
+                            <div class="fp-table-cell center">
+                                <div class="container">
+                                    <h3 class="small">Co Zyskuje Na Popularności</h3>
+                                    <h2 class="small">Sprawdź Nasz Katalog</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End mainslider items -->
+
+            </div>
+        </div>
+
+        <script>
+        $(function() {  aweMainSlider(); });
+        </script>
+
+    </section><!-- /section -->
+
+    <div id="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="#">STRONA GŁOWNA</a></li>
+                <li class="active"><span>KATALOG</span></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-md-push-3">
+                <div class="products products-grid-wrapper">
+                    <div class="row">
+                        {% for product in prods %}
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="product product-grid">
+                                <div class="product-media">
+                                    <div class="product-thumbnail">
+                                        <a href="product-fullwidth.html" title="">
+                                            <img src="{{product.image.url}}" alt=""
+                                                class="current" />
+                                            <!-- <img src="static/img/samples/products/index/clothing/2.jpg" alt=""> -->
+                                        </a>
+                                    </div>
+                                    <!-- /.product-thumbnail -->
+
+                                    <div class="product-hover">
+                                        <div class="product-actions">
+
+                                            <a href="{% url 'cart:cart_button' product.id %}" methode="post" class="awe-button product-quick-wishlist"
+                                                data-toggle="tooltip" title="Add to wishlist">
+                                                <i class="icon icon-star"></i>
+                                            </a>
+
+                                            <a href="#" class="awe-button product-quick-view"
+                                                data-toggle="tooltip" title="Quickview">
+                                                <i class="icon icon-eye"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- /.product-media -->
+
+                                <div class="product-body">
+                                    <h2 class="product-name">
+                                        <a href="#" title="Gin Lane Greenport Cotton Shirt">{{product.name}}</a>
+                                    </h2>
+                                    <!-- /.product-product -->
+
+                                    <div class="product-category">
+                                        <span>{{product.category}}</span>
+                                    </div>
+                                    <!-- /.product-category -->
+                                    <div class="product-price">
+                                        
+                                        <span class="amount">PLN {{product.price}} </span>
+                                        
+                                    </div>
+                                </div>
+                                <!-- /.product-body -->
+                            </div>
+                            <!-- /.product -->
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.products -->
+
+                <div class="pagination">
+                    
+
+                    <span class="step-links">
+                        {% if prods.has_previous %}
+                            <a href="?page=1">&laquo; first</a>
+                            <a href="?page={{ prods.previous_page_number }}"><i class="icon icon-arrow-prev"></i></a>
+                        {% endif %}
+                
+                        <span class="current">
+                            Page {{ prods.number }} of {{ prods.paginator.num_pages }}.
+                        </span>
+                
+                        {% if prods.has_next %}
+                        <a href="?page={{ prods.next_page_number }}">next</a>
+                        <a href="?page={{ prods.paginator.num_pages }}">last &raquo;</a>
+                        {% endif %}
+
+                    </span>
+
+                </div>
+                <!-- ./pagination -->
+            </div>
+            <!-- /.col-* -->
+
+            <div class="col-md-3 col-md-pull-9">
+                <div id="shop-widgets-filters" class="shop-widgets-filters">
+                    <div id="widget-area" class="widget-area">
+                        <div class="widget woocommerce widget_product_categories">
+                            <h3 class="widget-title">KATEGORIE</h3>
+
+                            <ul>
+                                <li class="cat-item">
+                                    <a href="{% url 'store:catalog' %}" title="">Wszystkie Produkty</a>
+                                </li>
+                                <li class="cat-item">
+                                    <a href="{% url 'store:catalog_by_category' 'necklaces' %}" title="">Naszyjniki</a>
+                                </li> <!--Necklaces-->
+                                <li class="cat-item">
+                                    <a href="{% url 'store:catalog_by_category' 'earrings' %}" title="">Kolczyki</a>
+                                </li> <!--Earrings-->
+                                <li class="cat-item">
+                                    <a href="{% url 'store:catalog_by_category' 'bracelets' %}" title="">Bransoletki</a>
+                                </li> <!--Bracelets-->
+                                <li class="cat-item">
+                                    <a href="{% url 'store:catalog_by_category' 'rings' %}" title="">Pierścionek</a>
+                                </li> <!--Rings-->
+                                <li class="cat-item">
+                                    <a href="{% url 'store:catalog_by_category' 'sets' %}" title="">Zestawy</a>
+                                </li> <!--Sets-->
+
+                            </ul>
+                        </div>
+                        <!-- /.widget -->
+
+                    </div>
+                </div>
+
+            </div>
+
+            
+            <!-- /.col-* -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+
+
+    <script>
+        // Add active class to the current button (highlight it)
+        var header = document.getElementById("myDIV");
+        var btns = header.getElementsByClassName("cat");
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function() {
+          var current = document.getElementsByClassName("active");
+          if (current.length > 0) { 
+            current[0].className = current[0].className.replace(" active", "");
+          }
+          this.className += " active";
+          });
+        }
+        </script>
+
+    <script>
+        $(function () {
+            aweProductSidebar();
+        });
+    </script>
+</div>
+
+{% endblock %}

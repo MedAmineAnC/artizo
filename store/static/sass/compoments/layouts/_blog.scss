@@ -1,0 +1,48 @@
+//==
+.blog-wrapper {
+    margin-bottom: 115px;
+
+    &.blog-sidebar-left {
+        .blog-column-left {
+            border-right: solid 1px $blog-border-color;
+            position: relative;
+            right: -1px;
+        }
+
+        .blog-column-right {
+            border-left: solid 1px $blog-border-color;
+        }
+    }
+
+    &.blog-sidebar-right {
+        .blog-column-left {
+            border-right: solid 1px $blog-border-color;
+        }
+
+        .blog-column-right {
+            border-left: solid 1px $blog-border-color;
+            position: relative;
+            left: -1px;
+        }
+    }
+}
+
+.edit-comment-action {
+    font-size: 12px;
+}
+ .border-blog{
+    position:relative;
+    @media (min-width:1200px) {
+        &:after{
+            position:absolute;
+            content:"";
+            width:1px;
+            top:0px;
+            bottom: 0px;
+            background: #e1e1e1;
+            left: 290px;
+            display: inline-block;
+        }
+
+    }
+ }

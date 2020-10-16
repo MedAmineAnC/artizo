@@ -1,0 +1,68 @@
+//==
+.customers-carousel {
+    color: #fff;
+    margin-bottom: 30px;
+
+    h4 {
+        margin-top: 0;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-family: "Montserrat";
+    }
+
+    p {
+        margin-bottom: 0;
+        font-size: 16px;
+        margin-top:20px; 
+        margin-bottom:20px;
+    }
+
+    .owl-dots,
+    .owl-controls {
+        margin-top: 50px;
+    }
+    .rating {
+        margin-bottom:20px; 
+    }
+
+    &-2 {
+        padding: 50px;
+        h4 {
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.8em;
+        }
+
+        .owl-dots,
+        .owl-controls {
+            margin-top: 38px;
+            span {
+                &:before {
+                    color: #898989;
+                }
+            }
+        }
+    }
+}
+
+.section-brands,
+.section-brands-2 {
+    color: #fff;
+    padding: 20px 0;
+    position: relative;
+    z-index: 15;
+
+    .brands-carousel {
+        height: 80px;
+    }
+}
+
+.section-brands-2 {
+    background: transparent;
+}

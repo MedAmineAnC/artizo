@@ -1,0 +1,87 @@
+.sport-link {
+	position: relative;
+	width: 25%;
+	height: 400px;
+	float: left;
+	transition: all .3s ease;
+	.sport-link-wrapper {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		// padding-bottom: 188.67%;
+		img {
+			width: 100%;
+			display: none;
+		}
+
+		.item-img {
+		  position: absolute;
+		  width: 100%;
+		  height: 100%;
+		  background-position: 50% 50%;
+		  background-size: cover;
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0; top: 0;
+			background-color: rgba(0, 0, 0, .6);
+			z-index: 22;
+			transition: all .3s ease;
+		}
+	}
+
+	h5 {
+		position: absolute;
+		display: inline-block;
+		bottom: 50px;
+		left: 0; right: 0;
+		text-align: center;
+		z-index: 22;
+		opacity: 0;
+		transition: all .3s ease;
+		&:before {
+			content: '';
+		    position: absolute;
+		    width: 100%;
+		    height: 150%;
+		    left: 0;
+		    top: -50%;
+		    background-color: #fff;
+		    filter: blur(25px);
+		    z-index: -1;
+		}
+	}
+
+	.overlay {
+		content: '';
+		position: absolute;
+		left: 0; top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 22;
+	}
+
+	&:hover {
+		// width: calc(25% + 10px);
+		.sport-link-wrapper {
+			&:before {
+				background-color: rgba(236, 240, 241, 0.2);
+			}
+		}
+
+		h5 {
+			opacity: 1;
+		}
+	}
+
+	@media screen and (max-width: 640px) {
+		width: 50%;
+	}
+
+	@media screen and (max-width: 480px) {
+		width: 100%;
+	}
+}

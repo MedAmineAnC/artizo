@@ -1,0 +1,84 @@
+//==
+$awe-alert-color:             $awe-white-color !default;
+$awe-alert-info-bg:           $awe-info-color !default;
+$awe-alert-success-bg:        $awe-success-color !default;
+$awe-alert-danger-bg:         $awe-danger-color !default;
+$awe-alert-warning-bg:        $awe-warning-color !default;
+
+// Overwrite mixins
+@mixin alert-variant($background, $text-color: $awe-alert-color) {
+    background-color: $background;
+    border-color: transparent;
+    color: $text-color;
+
+    hr {
+        border-top-color: darken($background, 5%);
+    }
+
+    .alert-link {
+        color: darken($text-color, 10%);
+    }
+
+    &.alert-outline {
+        color: $background;
+        background-color: transparent;
+        border-color: $background;
+
+        .close {
+            color: $background;
+        }
+    }
+}
+
+.alert-success {
+    @include alert-variant($awe-alert-success-bg);
+}
+
+.alert-info {
+    @include alert-variant($awe-alert-info-bg);
+}
+
+.alert-warning {
+    @include alert-variant($awe-alert-warning-bg);
+}
+
+.alert-danger {
+    @include alert-variant($awe-alert-danger-bg);
+}
+
+.alert-white {
+    @include alert-variant($awe-white-color, $awe-dark-color);
+}
+
+.alert-dark {
+    @include alert-variant($awe-dark-color);
+
+    a {
+        color: #fff;
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: $hover-color;
+        }
+    }
+
+    .close {
+        color: #fff;
+    }
+}
+
+// ...
+.text-alert {
+    color: $gray-color;
+    font-family: $font-family-heading;
+    font-size: 12px;
+
+    a {
+        color: #333;
+
+        &:hover {
+            color: $hover-color;
+        }
+    }
+}

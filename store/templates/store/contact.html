@@ -1,0 +1,235 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %} KONTAKT | Artizo {% endblock %}
+
+{% block cart %}
+
+<ul class="navbar-icons"> 
+    <li class="menubar-cart">
+        <a class="awemenu-icon menu-shopping-cart" title="" href="{% url 'cart:cart_detail' %}">
+            <div class="icon icon-cart"></div>
+            <div class="text">
+                <p class="cart-number">{{cart.get_total_items}}</p>
+            </div>
+        </a>
+
+        <ul class="submenu megamenu">
+            <li>
+                <div class="container-fluid">
+
+                    <ul class="whishlist">
+
+                        {% for item in cart %}
+						{% with product=item.product %}
+                        <li>
+                            <div class="whishlist-item">
+                                <div class="product-image">
+                                    <a href="#" title="">
+                                        <img src="{{product.image.url}}" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="product-body">
+                                    <div class="whishlist-name">
+                                        <h3><a href="#" title="">{{product.name}}</a></h3>
+                                    </div>
+
+                                    <div class="whishlist-price">
+                                        <span>Cena:</span>
+                                        <strong>PLN {{product.price}}</strong>
+                                    </div>
+
+                                    <div class="whishlist-quantity">
+                                        <span>Ilość:</span>
+                                        <span>1</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="#" title="" class="remove">
+                                <i class="icon icon-remove"></i>
+                            </a>
+                        </li>
+                        {% endwith %}
+                        {% endfor %}
+                        
+
+                    
+                        
+                    </ul>
+
+                    <div class="menu-cart-total">
+                        <span>Total</span>
+                        <span class="price">PLN {{cart.get_total_price}}</span>
+                    </div>
+
+                    <div class="cart-action">
+                        <a href="{% url 'cart:cart_detail' %}" title="" class="btn btn-lg btn-dark btn-outline btn-block">Zobacz Koszyk</a>
+                        <a href="checkout.html" title="" class="btn btn-lg btn-primary btn-block">Przejdź do kasy</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+{% endblock %}
+
+{% block content %}
+<div id="main">
+
+    <section>
+
+
+
+
+
+        <div class="main-slider-wrapper">
+            <div class="main-slider owl-carousel owl-carousel-inset">
+
+                <div class="main-slider-item">
+                    <div class="main-slider-image">
+                        <img src="/static/img/samples/sliders/4.jpg" alt="">
+                    </div>
+
+                    <div class="main-slider-text">
+
+                        <div class="fp-table">
+                            <div class="fp-table-cell center">
+                                <div class="container">
+                                    <h3 class="small">Co Zyskuje Na Popularności</h3>
+                                    <h2 class="small">Skontaktuj Się z Nami</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End mainslider items -->
+
+            </div>
+        </div>
+
+        <script>
+            $(function () { aweMainSlider(); });
+        </script>
+
+    </section><!-- /section -->
+
+    <div id="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="#">STRONA GŁOWNA</a></li>
+                <li class="active"><span>KONTAKT</span></li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Map -->
+    <div class="contact-map space-50" id="contact-map"  data-lat="-37.849333" data-lng="144.962086">
+        <!-- // -->
+    </div><!-- /.contact-map -->
+    <script>
+    $(function() {
+        aweMaps();
+
+        $('#contact-form').on('submit', function() {
+            var $form = $(this);
+            var data = $(this).serialize();
+
+            $.ajax({
+                url: 'contact.php',
+                type: 'POST',
+                data: data,
+            })
+            .done(function(res) {
+                if (res && ! $(res).hasClass('failure')) {
+                    $form.find('input, textarea').val('');
+                }
+            })
+            .always(function(res) {
+                $('#ajax-message').html(res);
+            });
+
+            return false;
+        });
+    });
+    </script>                
+    <div class="contact-wrapper">
+        <div class="margin-bottom-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="contact-content">
+                            <div class="contact-header">
+                                <div class="contact-image">
+                                    <img src="/static/img/samples/banners/contact/banner-contact-1.jpg" alt="">
+                                </div>
+                            </div><!-- /.contact-header -->
+
+                            <div class="col-md-12 col-sm-12 center">
+
+                                <div class="widget">
+                                    <h3 class="widget-title size-30">KONTAKT</h3>
+                                    <div class="widget-content">
+                                        <p>Sklep: C.H. European </p>
+                                        <p>ul. Marii Świątkiewicz 51/Lokal B15</p>
+                                        <p>05-552 Wólka Kosowska - Polska</p>
+                                        <p>Pon - Pt: 06:00-13:00</p>
+                                        <p>Sob: 06:00-12:00</p>
+                                        <p>Mail: <a href="mailto:" title=""><span
+                                                    class="color">artizo.bizuterii@gmail.com</span></a></p>
+                                        
+                                    </div>
+
+                                </div>
+
+                            </div><!-- /.contact-block -->
+                        </div><!-- /.contact-content -->
+                    </div><!-- /.col-md-6 -->
+
+                    <div class="col-md-6">
+                        <div class="contact-content">
+                            <div class="contact-form-heading">
+                                <h2>EMAIL TO OUR</h2>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
+                            </div><!-- /.contact-content -->
+
+                            <div id="ajax-message"></div>
+
+                            <form action="contact.php" method="POST"  id="contact-form">
+                                <div class="form-group">
+                                    <label for="contact-name">Name <span>*</span></label>
+                                    <input type="text" name="name" id="contact-name" class="form-control" placeholder="Name" required>
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group">
+                                    <label for="contact-email">Email <span>*</span></label>
+                                    <input type="email" name="email" id="contact-email" class="form-control" placeholder="Email" required>
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group">
+                                    <label for="contact-phone">Phone number <span>*</span></label>
+                                    <input type="url" name="website" id="contact-phone" class="form-control" placeholder="Phone">
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group">
+                                    <label for="contact-message">Message <span>*</span></label>
+                                    <textarea name="message" id="contact-message" class="form-control" rows="7" required  placeholder="Your message"></textarea>
+                                </div><!-- /.form-group -->
+
+                                <div class="form-button">
+                                    <button type="submit" class="btn btn-lg btn-dark">Send Message</button>
+                                </div><!-- /.form-button -->
+                            </form>
+                        </div>
+                    </div><!-- /.col-md-6 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.margin-bottom-100 -->
+
+        <!-- // -->
+    </div><!-- /.contact-map -->
+</div>
+{% endblock %}

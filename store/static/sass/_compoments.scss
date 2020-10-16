@@ -1,0 +1,100 @@
+/* -------------------------------------------------------------------------------
+    1. Base compoments
+--------------------------------------------------------------------------------*/
+/* == 1.1 Grid ==*/
+@import "compoments/grid";
+
+@import "compoments/overlay";
+@import "compoments/background";
+@import "compoments/list-socials";
+
+@import "compoments/alert";
+@import "compoments/forms";
+@import "compoments/buttons";
+@import "compoments/colors";
+@import "compoments/progress-bars";
+
+@import "compoments/dropdown";
+@import "compoments/breadcrumb";
+@import "compoments/pagination";
+
+/* -------------------------------------------------------------------------------
+    2. Awe compoments
+--------------------------------------------------------------------------------*/
+@import "compoments/awe-nav";
+@import "compoments/awe-menubar";
+
+@import "compoments/awe-box";
+@import "compoments/awe-media";
+@import "compoments/awe-counting";
+@import "compoments/awe-page-loading";
+@import "compoments/awe-bgvideo";
+
+/* -------------------------------------------------------------------------------
+    3. Awe compoments
+--------------------------------------------------------------------------------*/
+@import "compoments/post";
+@import "compoments/comment";
+
+@import "compoments/product";
+@import "compoments/lookbook";
+@import "compoments/blockquote";
+@import "compoments/divider";
+
+/* -------------------------------------------------------------------------------
+    4. Plugins compoments
+--------------------------------------------------------------------------------*/
+@import "compoments/ranger";
+@import "compoments/nanoscroller";
+@import "compoments/owl-carousel";
+
+/* -------------------------------------------------------------------------------
+    5. Widgets compoments
+--------------------------------------------------------------------------------*/
+@import "compoments/widgets/widgets";
+@import "compoments/widgets/subscible-widget";
+@import "compoments/widgets/brand-widget";
+
+/* -------------------------------------------------------------------------------
+    6. Sections compoments
+--------------------------------------------------------------------------------*/
+@import "compoments/sections/sections";
+@import "compoments/sections/main-sliders";
+@import "compoments/sections/news-section";
+@import "compoments/sections/policy-section";
+@import "compoments/sections/customers-section";
+@import "compoments/sections/categories-section";
+@import "compoments/sections/feature-section";
+@import "compoments/sections/model-section";
+
+/* -------------------------------------------------------------------------------
+    7. Layouts compoments
+--------------------------------------------------------------------------------*/
+@import "compoments/layouts/main";
+@import "compoments/layouts/header";
+@import "compoments/layouts/footer";
+
+@import "compoments/layouts/404";
+@import "compoments/layouts/comming-soon";
+
+@import "compoments/layouts/blog";
+@import "compoments/layouts/contact";
+@import "compoments/layouts/account";
+
+@import "compoments/layouts/payment";
+@import "compoments/layouts/portfolio";
+@import "compoments/layouts/customers-say";
+@import "compoments/layouts/room-review";
+@import "compoments/layouts/farmer";
+@import "compoments/layouts/news-post-thumbnail";
+@import "compoments/layouts/season-link";
+@import "compoments/layouts/glass-trending";
+@import "compoments/layouts/sport-link";
+@import "compoments/saleoff";
+
+/* -------------------------------------------------------------------------------
+    8. Wordpress fixed
+--------------------------------------------------------------------------------*/
+@import "compoments/wp";
+@import "compoments/cart";
+@import "compoments/wishlist";

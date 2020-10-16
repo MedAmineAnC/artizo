@@ -1,0 +1,53 @@
+//==
+@include selection() {
+    color: $awe-white-color;
+    background: $hover-color;
+}
+
+html, body {
+    height: 100%;
+    font-family: $font-family-base;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    font-family: $font-family-heading;
+}
+
+a, button {
+    transition: all 0.25s ease-in-out;
+
+    &:focus,
+    &:active {
+        outline: none !important;
+    }
+}
+
+a {
+    color: $main-color;
+
+    &:hover,
+    &:focus {
+        color: $hover-color;
+        text-decoration: none;
+    }
+}
+
+label {
+    font-size: 12px;
+    font-family: $font-family-heading;
+
+    sup { color: red; }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.btn,
+.alert,
+.tooltip-inner,
+.form-control {
+    border-radius: 0;
+}
