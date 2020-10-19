@@ -1,0 +1,229 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %} KATALOG | Artizo {% endblock %}
+
+{% block cart %}
+
+<ul class="navbar-icons"> 
+    <li class="menubar-cart">
+        <a class="awemenu-icon menu-shopping-cart" title="" href="{% url 'cart:cart_detail' %}">
+            <div class="icon icon-cart"></div>
+            <div class="text">
+                <p class="cart-number">{{cart.get_total_items}}</p>
+            </div>
+        </a>
+
+        <ul class="submenu megamenu">
+            <li>
+                <div class="container-fluid">
+
+                    <ul class="whishlist">
+
+                        {% for item in cart %}
+						{% with product=item.product %}
+                        <li>
+                            <div class="whishlist-item">
+                                <div class="product-image">
+                                    <a href="#" title="">
+                                        <img src="{{product.image.url}}" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="product-body">
+                                    <div class="whishlist-name">
+                                        <h3><a href="#" title="">{{product.name}}</a></h3>
+                                    </div>
+
+                                    <div class="whishlist-price">
+                                        <span>Cena:</span>
+                                        <strong>PLN {{product.price}}</strong>
+                                    </div>
+
+                                    <div class="whishlist-quantity">
+                                        <span>Ilość:</span>
+                                        <span>1</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="#" title="" class="remove">
+                                <i class="icon icon-remove"></i>
+                            </a>
+                        </li>
+                        {% endwith %}
+                        {% endfor %}
+                        
+
+                    
+                        
+                    </ul>
+
+                    <div class="menu-cart-total">
+                        <span>Total</span>
+                        <span class="price">PLN {{cart.get_total_price}}</span>
+                    </div>
+
+                    <div class="cart-action">
+                        <a href="{% url 'cart:cart_detail' %}" title="" class="btn btn-lg btn-dark btn-outline btn-block">Zobacz Koszyk</a>
+                        <a href="{% url 'store:checkout' %}" title="" class="btn btn-lg btn-primary btn-block">Przejdź do kasy</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+{% endblock %}
+
+{% block content %}
+
+<div id="main">
+    <section>
+        
+        
+        
+        
+
+        <div class="main-slider-wrapper">
+            <div class="main-slider owl-carousel owl-carousel-inset">
+
+                <div class="main-slider-item">
+                    <div class="main-slider-image">
+                        <img src="/static/img/samples/sliders/4.jpg" alt="">
+                    </div>
+
+                    <div class="main-slider-text">
+
+                        <div class="fp-table">
+                            <div class="fp-table-cell center">
+                                <div class="container">
+                                    <h3 class="small">Co Zyskuje Na Popularności</h3>
+                                    <h2 class="small">Sprawdź Nasz Katalog</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End mainslider items -->
+
+            </div>
+        </div>
+
+        <script>
+        $(function() {  aweMainSlider(); });
+        </script>
+
+    </section><!-- /section -->
+
+
+    <div id="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="#">STRONA GŁOWNA</a></li>
+                <li class="active"><span>{{product.name}}</span></li>
+            </ol>
+
+        </div>
+    </div>
+
+    
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="product-slider-wrapper thumbs-bottom">
+
+                    <div class="swiper-container product-slider-main">
+                        <div class="swiper-wrapper">
+                            
+                            <div class="swiper-slide">
+                                <div class="easyzoom easyzoom--overlay">
+                                    <a href="{{product.image.url}}" title="">
+                                        <img src="{{product.image.url}}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="easyzoom easyzoom--overlay">
+                                    <a href="{{product.image.url}}" title="">
+                                        <img src="{{product.image.url}}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                                    
+                        </div>
+
+                        <div class="swiper-button-prev"><i class="fa fa-chevron-left"></i></div>
+                        <div class="swiper-button-next"><i class="fa fa-chevron-right"></i></div>
+                    </div><!-- /.swiper-container -->
+
+                    <div class="swiper-container product-slider-thumbs">
+                        <div class="swiper-wrapper">
+                
+                            <div class="swiper-slide">
+                                <img src="{{product.image.url}}" alt="">
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <img src="{{product.image.url}}" alt="">
+                            </div>
+                            
+                            
+                        </div>
+                    </div><!-- /.swiper-container -->
+
+                </div><!-- /.product-slider-wrapper -->
+            </div>
+
+            <div class="col-md-6">
+                <nav class="pnav">
+
+                    <a href="{% url 'store:catalog' %}" class="back-to-pcate">
+                        <i class="fa fa-chevron-left"></i>
+                        <span>Powrót do katalogu</span>
+                    </a>
+                </nav><!-- /header -->
+
+                <div class="product-details-wrapper">
+                    <h2 class="product-name">
+                        <a href="#" title="{{product.name}}">{{product.name}}</a>
+                    </h2><!-- /.product-name -->
+
+
+                    <div class="product-actions-wrapper">
+
+
+                        <div class="product-list-actions">
+                            <span class="product-price">
+                                <span class="amount">PLN {{product.price}}</span>
+                            </span><!-- /.product-price -->
+
+                            <a href="{% url 'cart:cart_button' product.id %}" method="post" class="btn btn-lg btn-primary" >Dodaj do koszyka</a>
+                        </div><!-- /.product-list-actions -->
+                    </div><!-- /.product-actions-wrapper -->
+
+                    <div class="product-meta">
+                        <span class="product-category">
+                            <span>Category:</span>
+                            <a href="{% url 'store:catalog_by_category' product.category.slug %}" title="">{{product.category}}</a>
+                        </span>
+
+
+                    </div><!-- /.product-meta -->
+                </div><!-- /.product-details-wrapper -->
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+    $(function() { aweProductRender(true); });
+    </script>
+
+</div>
+
+
+{% endblock %}

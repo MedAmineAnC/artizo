@@ -66,7 +66,7 @@
 
                     <div class="cart-action">
                         <a href="{% url 'cart:cart_detail' %}" title="" class="btn btn-lg btn-dark btn-outline btn-block">Zobacz Koszyk</a>
-                        <a href="checkout.html" title="" class="btn btn-lg btn-primary btn-block">Przejdź do kasy</a>
+                        <a href="{% url 'store:checkout' %}" title="" class="btn btn-lg btn-primary btn-block">Przejdź do kasy</a>
                     </div>
                 </div>
             </li>
@@ -192,16 +192,15 @@
                     <div class="col-md-6">
                         <div class="contact-content">
                             <div class="contact-form-heading">
-                                <h2>EMAIL TO OUR</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>
+                                <h2>Wyślij do nas e-mail</h2>
                             </div><!-- /.contact-content -->
 
                             <div id="ajax-message"></div>
 
                             <form action="contact.php" method="POST"  id="contact-form">
                                 <div class="form-group">
-                                    <label for="contact-name">Name <span>*</span></label>
-                                    <input type="text" name="name" id="contact-name" class="form-control" placeholder="Name" required>
+                                    <label for="contact-name">Imię nazwisko <span>*</span></label>
+                                    <input type="text" name="name" id="contact-name" class="form-control" placeholder="Imię nazwisko" required>
                                 </div><!-- /.form-group -->
 
                                 <div class="form-group">
@@ -210,17 +209,17 @@
                                 </div><!-- /.form-group -->
 
                                 <div class="form-group">
-                                    <label for="contact-phone">Phone number <span>*</span></label>
-                                    <input type="url" name="website" id="contact-phone" class="form-control" placeholder="Phone">
+                                    <label for="contact-phone">Telefon <span>*</span></label>
+                                    <input type="url" name="website" id="contact-phone" class="form-control" placeholder="Telefon">
                                 </div><!-- /.form-group -->
 
                                 <div class="form-group">
-                                    <label for="contact-message">Message <span>*</span></label>
-                                    <textarea name="message" id="contact-message" class="form-control" rows="7" required  placeholder="Your message"></textarea>
+                                    <label for="contact-message">Wiadomość <span>*</span></label>
+                                    <textarea name="message" id="contact-message" class="form-control" rows="7" required  placeholder="Wiadomość"></textarea>
                                 </div><!-- /.form-group -->
 
                                 <div class="form-button">
-                                    <button type="submit" class="btn btn-lg btn-dark">Send Message</button>
+                                    <button type="submit" class="btn btn-lg btn-dark">Wyślij wiadomość</button>
                                 </div><!-- /.form-button -->
                             </form>
                         </div>

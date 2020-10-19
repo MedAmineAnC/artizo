@@ -23,13 +23,27 @@ def product_list(request, category_slug=None):
     return render(request, 'store/catalog/list.html', {'prods':prods, 'category': category, 'categories':categories, 'cart': cart})
 
 def product_detail(request, id, slug):
-    product = get_object_or_404(Product, id=id, slug=slug)
+    cart = Cart(request)
+    category = None
+    categories = Category.objects.all()
+    products = Product.objects.all()
+    product = get_object_or_404(Product, id=id)
 
-    return render(request, 'store/catalog/detail.html', {'product':product, 'cart': cart})
+    category = product.category
+
+    prods = products.filter(category=category)
+    
+
+    return render(request, 'store/catalog/detail.html', {'product':product, 'prods':prods, 'cart': cart})
 
 def about(request):
     cart = Cart(request)
     return render(request, 'store/about.html', {'cart': cart})
+
+def checkout(request):
+    cart = Cart(request)
+    return render(request, 'store/checkout.html', {'cart': cart})
+
 
 def contact(request):
     cart = Cart(request)

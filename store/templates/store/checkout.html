@@ -1,0 +1,280 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %} KASY | Artizo {% endblock %}
+
+{% block cart %}
+
+<ul class="navbar-icons"> 
+    <li class="menubar-cart">
+        <a class="awemenu-icon menu-shopping-cart" title="" href="{% url 'cart:cart_detail' %}">
+            <div class="icon icon-cart"></div>
+            <div class="text">
+                <p class="cart-number">{{cart.get_total_items}}</p>
+            </div>
+        </a>
+
+        <ul class="submenu megamenu">
+            <li>
+                <div class="container-fluid">
+
+                    <ul class="whishlist">
+
+                        {% for item in cart %}
+						{% with product=item.product %}
+                        <li>
+                            <div class="whishlist-item">
+                                <div class="product-image">
+                                    <a href="#" title="">
+                                        <img src="{{product.image.url}}" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="product-body">
+                                    <div class="whishlist-name">
+                                        <h3><a href="#" title="">{{product.name}}</a></h3>
+                                    </div>
+
+                                    <div class="whishlist-price">
+                                        <span>Cena:</span>
+                                        <strong>PLN {{product.price}}</strong>
+                                    </div>
+
+                                    <div class="whishlist-quantity">
+                                        <span>Ilość:</span>
+                                        <span>1</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="#" title="" class="remove">
+                                <i class="icon icon-remove"></i>
+                            </a>
+                        </li>
+                        {% endwith %}
+                        {% endfor %}
+                        
+
+                    
+                        
+                    </ul>
+
+                    <div class="menu-cart-total">
+                        <span>Total</span>
+                        <span class="price">PLN {{cart.get_total_price}}</span>
+                    </div>
+
+                    <div class="cart-action">
+                        <a href="{% url 'cart:cart_detail' %}" title="" class="btn btn-lg btn-dark btn-outline btn-block">Zobacz Koszyk</a>
+                        <a href="{% url 'store:checkout' %}" title="" class="btn btn-lg btn-primary btn-block">Przejdź do kasy</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+{% endblock %}
+
+{% block content %}
+
+<div id="main">
+    <section>
+        
+        
+        
+        
+
+        <div class="main-slider-wrapper">
+            <div class="main-slider owl-carousel owl-carousel-inset">
+
+                <div class="main-slider-item">
+                    <div class="main-slider-image">
+                        <img src="/static/img/samples/sliders/4.jpg" alt="">
+                    </div>
+
+                    <div class="main-slider-text">
+
+                        <div class="fp-table">
+                            <div class="fp-table-cell center">
+                                <div class="container">
+                                    <h3 class="small">Co Zyskuje Na Popularności</h3>
+                                    <h2 class="small">Sprawdź Nasz Katalog</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End mainslider items -->
+
+            </div>
+        </div>
+
+        <script>
+        $(function() {  aweMainSlider(); });
+        </script>
+
+    </section><!-- /section -->
+
+
+    <div id="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="#">STRONA GŁOWNA</a></li>
+                <li class="active"><span>KASY</span></li>
+            </ol>
+
+        </div>
+    </div>
+
+      
+    <form action="checkout.html" method="POST" >
+        <div class="checkout-wrapper">
+            <div class="container">
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Szczegóły płatności</h2>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="first_name">Imię <sup>*</sup></label>
+                                    <input type="text" class="form-control dark" id="first_name" placeholder="Imię">
+                                </div><!-- /.form-group -->
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="last_name">Nazwisko<sup>*</sup></label>
+                                    <input type="text" class="form-control dark" id="last_name" placeholder="Nazwisko">
+                                </div><!-- /.form-group -->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company-name">Nazwa firmy</label>
+                            <input type="text" class="form-control dark" id="company-name" placeholder="Nazwa firmy">
+                        </div><!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label for="address">Adres*</label>
+                            <input type="text" class="form-control dark" id="address" placeholder=" Adres">
+                        </div><!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label for="address_2" class="sr-only"></label>
+                            <input type="text" class="form-control dark" id="address_2" placeholder="Mieszkanie, apartament.. (Opcjonalnie)">
+                        </div><!-- /.form-group -->
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="street-address">Miasto <sup>*</sup></label>
+                                    <input type="text" class="form-control dark" id="street-address" placeholder="Miasto">
+                                </div><!-- /.form-group -->
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="town_country">Kraj <sup>*</sup></label>
+                                    <input type="text" class="form-control dark" id="town_country" placeholder="Country">
+                                </div><!-- /.form-group -->
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email_address">Adres e-mail <sup>*</sup></label>
+                                    <input type="text" class="form-control dark" id="email_address" placeholder="Adres e-mail">
+                                </div><!-- /.form-group -->
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phone">Telefon <sup>*</sup></label>
+                                    <input type="text" class="form-control dark" id="phone" placeholder="Telefon">
+                                </div><!-- /.form-group -->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="order-notes">Uwagi dotyczące zamówień</label>
+                            <textarea name="order-notes" id="order-notes" class="form-control dark" rows="3" placeholder="Uwagi dotyczące zamówień"></textarea>
+                        </div><!-- /.form-group -->
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="payment-right">
+                            <h2>Twoje szczegóły płatności</h2>
+
+                            <div class="payment-detail-wrapper">
+                                <ul class="cart-list">
+                                    
+                                    {% for item in cart %}
+                                    {% with product=item.product %}
+                        
+                                    <li>
+                                        <div class="cart-item">
+
+                                            <div class="product-body">
+                                                <div class="product-name">
+                                                    <h3>
+                                                        <a href="#" title="">{{product.name}}</a>
+                                                    </h3>
+                                                </div>
+
+                                                <div class="product-price">
+                                                    <span>PLN {{product.price}}</span>
+                                                </div>
+                                            </div>
+                                        </div><!-- /.cart-item -->
+
+                                    </li>
+                          
+                                    {% endwith %}
+                                    {% endfor %}
+                                </ul> <!-- /.cart-list -->
+                            </div><!-- /.payment-detail-wrapper -->
+
+
+                            <div class="cart-total">
+                                <table>
+                                    <tbody>
+                                        <tr class="cart-subtotal">
+                                            <th>Suma częściowa koszyka:</th>
+                                            <td><span class="amount">PLN {{cart.get_total_price}}</span></td>
+                                        </tr>
+                                        <tr class="shipping">
+                                            <th>Wysyłka:</th>
+                                            <td>Darmowa dostawa</td>
+                                        </tr>
+                                        <tr class="order-total">
+                                            <th>Suma zamówienia:</th>
+                                            <td><strong><span class="amount">PLN {{cart.get_total_price}}</span></strong> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div><!-- /.cart-total -->
+
+
+
+                            <div>
+                                <a href="#" class="btn btn-lg btn-primary">zapłacić za PayU</a>
+                            </div><!-- /.wc-proceed-to-checkout -->
+
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.container -->
+        </div><!-- /.checkout-wrapper -->
+    </form>
+
+</div>
+
+{% endblock %}

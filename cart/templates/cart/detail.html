@@ -66,7 +66,7 @@
 
                     <div class="cart-action">
                         <a href="{% url 'cart:cart_detail' %}" title="" class="btn btn-lg btn-dark btn-outline btn-block">Zobacz Koszyk</a>
-                        <a href="checkout.html" title="" class="btn btn-lg btn-primary btn-block">Przejdź do kasy</a>
+                        <a href="{% url 'store:checkout' %}" title="" class="btn btn-lg btn-primary btn-block">Przejdź do kasy</a>
                     </div>
                 </div>
             </li>
@@ -212,7 +212,7 @@
                 <div class="col-sm-6 f-right">
                     <!--START TOTAL-->
                     <div class="cart-total right">
-                        <div class="margin-bottom-30"><a href="/collections/all">« Kontynuować zakupy</a></div>
+                        <div class="margin-bottom-30"><a href="{% url 'store:catalog' %}">« Kontynuować zakupy</a></div>
                         <div class="cart__row">
                             <div class="grid">
 
@@ -223,7 +223,7 @@
                                     </p>
 
 
-                                <input type="submit" name="checkout" class="btn btn-lg btn-primary" value="Przejdź do kasy">
+                                    <a href="{% url 'store:checkout' %}" class="btn btn-lg btn-primary">Przejdź do kasy</a>
 
                                 </div>
                             </div>
